@@ -24,3 +24,33 @@
 .navbar .searchbar {
     display: flex;
 }
+
+.search{
+    display: flex;
+    align-items: center;
+    border: 1px solid hsl(0,0%,18.82%);
+    border-radius: 20px;
+    width: 632px;
+    height: 40px; 
+    margin-right: 5px;
+}
+ 
+.search input {
+    border: none;
+    outline: none;
+    width: 90%;
+}
+
+#search-input::placeholder {
+    color: white;
+    font-size: 14px;;
+}
+
+.search button {
+    background: none;
+    border: none;
+    border-left: 2px solid hsl(0,0%,18.82%);
+    cursor: pointer;
+    padding: 5px;
+    width: 10%;
+}
