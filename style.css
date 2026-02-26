@@ -27,12 +27,12 @@
 
 .search{
     display: flex;
-    align-items: center;
+
     border: 1px solid hsl(0,0%,18.82%);
     border-radius: 20px;
     width: 632px;
     height: 40px; 
-    margin-right: 5px;
+    margin-right: 10px;
 }
  
 .search input {
@@ -42,8 +42,9 @@
 }
 
 #search-input::placeholder {
-    color: white;
-    font-size: 14px;;
+    color: hsl(0,0%,18.82%);
+    font-size: 14px;
+    text-align: center;
 }
 
 .search button {
@@ -53,4 +54,40 @@
     cursor: pointer;
     padding: 5px;
     width: 10%;
+}
+
+.search button i {
+    margin: 0;
+}
+
+.material-icons {
+    color: #606060;
+    margin-right: 10px;
+}
+
+.mainbody {
+    height: calc(100vh - 56px);
+    display: flex;
+}
+
+.categories {
+    width: 240px;
+    height: 100%;
+    background: white;
+}
+.category {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 0 24px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.videos {
+    width: calc(100vw - 240px);
+    height: 100%;
+    background: #f9f9f9;
+    border-top: 1px solid #cccccc;
 }
