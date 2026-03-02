@@ -4,303 +4,462 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/favicon.svg">
+
     <title>YouTube</title>
 </head>
 <body>
-    <nav>
-        <div class="navbar">
-            <div class="logo">
-                <i class="material-icons">menu</i>
-                <img src="assets/logo.svg" alt="YouTube logo">
-            </div>
-
-            <div class="searchbar">
-                <div class="search">
-                    <input  type="text" id="search" placeholder="Search"/>
-                    <button><i class="material-icons">search</i></button>
-                </div>
-                
-                <i class="material-icons">keyboard_voice</i>
-            </div>
-             
-            <div class="navigation-icons">
-                <i class="material-icons">add</i>
-                <button>Create</button>
-                <i class="material-icons">notifications</i>
-                <i class="material-icons">account_circle</i>
-            </div>
+    <div class="navbar">
+        <div class="logo">
+            <i class="material-icons">menu</i>
+            <img src="assets/logo.svg" alt="YouTube logo">
         </div>
-    </nav>
 
-    <aside>
-        <section class="button-group">
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+        <div class="searchbar">
+            <form class="search">
+                <input  type="text" id="search" placeholder="Search"/>
+                <button type="button"><img src="assets/search.svg" alt="search"></button>
+            </form>
+                
+            <button class="microphone" ><img src="assets/Microphone.svg" alt="Microphone"></button>
+        </div>
+             
+        <div class="navigation-icons">
+            <button class="add"><img src="assets/add.svg" alt="">Create
+            </button>
+            
+            <i class="material-icons">notifications</i>
+            
+            <button class="profile"><img src="assets/profileimg.jpg" alt="Profile"></button>
+        </div>
+    </div>
+
+    <div class="mainbody">
+        
+        <div class="categories">
+            <div class="category-section">
+                <span class="category">
+                    <i class="material-icons">home</i>
+                    Home
+                </span>
+                
+                <span class="category">
+                    <i class="material-icons">smart_display</i>
+                    Shorts
                 </span>
             </div>
-
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+            
+    
+            <div class="category-section">
+                <span class="category">
+                    <h2>Subscriptions</h2><i class="material-icons">keyboard_arrow_right</i>
                 </span>
-            </div>
-        </section>
+                
 
-        <section class="button-group">
-            <h2>Subscriptions  ></h2>
-
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+                
+                <span class="subscription">
+                    <img src="assets/mpoomyL.jpg" alt="profile">
+                    Mpoomy Ledwaba
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+                <span class="subscription">
+                        <img src="assets/Zaio.jpg" alt="Profile">
+                        Zaio
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+                <span class="subscription">
+                    <img src="assets/Kelvin.jpg" alt="Profile">
+                    Kelvin Momo
+                 </span>
+
+                <span class="subscription">
+                    <img src="assets/Mosh.jpg" alt="Profile">
+                    Programming with...
+                 </span>
+
+                <span class="subscription">
+                    <img src="assets/women.jpg" alt="Profile">
+                    Women of Purpose
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+                <span class="subscription">
+                    <img src="assets/showmax.jpg" alt="Profile">
+                    Showmax
                 </span>
-            </div>
-
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
+                    
+                <span class="subscription">
+                    <img src="assets/netfliximg.jpg" alt="Profile">
+                    Netflix
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
-                </span>
-            </div>
-
-            <div class="button">
-                <span>
-                    <i class="material-icons">account_circle</i>
-                    See More
-                </span>
-            </div>
-
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">keyboard_arrow_down</i>
                     See More
                 </span>
             </div>
-        </section>
 
-        <section class="button-group">
-            <h2>You  ></h2>
+            <div class="category-section">
+                <span class="category">
+                    <h2>You</h2><i class="material-icons">keyboard_arrow_right</i>
+                </span>
 
-             <div class="button">
-                <span>
+                <span class="category">       
                     <i class="material-icons">history</i>
                     History
                 </span>
-            </div>
-
-             <div class="button">
-                <span>
+                
+                <span class="category">
                     <i class="material-icons">playlist_play</i>
                     Playlists
                 </span>
-            </div>
 
-             <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">schedule</i>
                     Watch Later
                 </span>
-            </div>
 
-             <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">thumb_up</i>
                     Liked videos
                 </span>
-            </div>
-
-             <div class="button">
-                <span>
+                
+                <span class="category">
                     <i class="material-icons">video_library</i>
                     Your video
                 </span>
-            </div>
 
-             <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">download</i>
                     Downloads
                 </span>
-            </div>
 
-             <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">keyboard_arrow_down</i>
                     See More
                 </span>
             </div>
+            
+            <div class="category-section">
+                <div class="category">
+                    <h2>Explore</h2>
+                </div>
 
-        </section>
-
-        <section class="button-group">
-            <h2>Explore</h2>
-
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">music_note</i>
                     Music
                 </span>
-            </div>
-
-            <div class="button">
-                <span>
+            
+                <span class="category">
                     <i class="material-icons">videogame_asset</i>
                     Gaming
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">newspaper</i>
                     News
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">keyboard_arrow_down</i>
                     Show more
                 </span>
             </div>
 
-        </section>
-
-        <section class="button-group">
-            <h3>More from YouTube</h3>
-
-            <div class="button">
-                <span>
+            <div class="category-section">
+                <div class="category">
+                    <h3>More from YouTube</h3>
+                </div>
+                 
+                <span class="category">
                     <i class="material-icons">play_circle_filled</i>
                     YouTube Premium
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">hexagon</i>
                     YouTube Studio
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">play_circle_outline</i>
                     YouTube Music
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">play_circle_outline</i>
                     YouTube Kids
                 </span>
             </div>
+        
 
-        </section>
-
-        <section class="button-group">
-            <div class="button">
-                <span>
+            <div class="category-section">
+                <span class="category">
                     <i class="material-icons">settings</i>
                     Settings
                 </span>
-            </div>
 
-            <div class="button">
-                <span>
+                <span class="category">
                     <i class="material-icons">flag</i>
                     Report history
                 </span>
+
+                    <span  class="category">
+                        <i class="material-icons">help</i>
+                        Help
+                    </span>
+
+                    <span class="category">
+                        <i class="material-icons">feedback</i>
+                        Send feedback
+                    </span>
+                </div>
+            
+                <div class="cagories-footer">
+                    <div class="footer-section">
+                        <span>About</span>
+                        <span>Press</span>
+                        <span>Copyright</span>
+                        <span>Contact Us</span>
+                        <span>Creator</span>
+                        <span>Advertise</span>
+                        <span>Developers</span>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <span>Terms</span>
+                        <span>Privacy</span>
+                        <span>Policy & Safety</span>
+                        <span>How YouTube works</span>
+                        <span>Test new features</span>
+                    </div>   
+
+                    <span class="copyright">&copy; 2026 Zaio YouTube Clone</span>
+                </div> 
             </div>
-
-            <div class="button">
-                <span>
-                    <i class="material-icons">help</i>
-                    Help
-                </span>
+        
+        <main>
+            <div class="filter-bar" role="tablist" aria-label="Video Categories">
+                <button role="tab" aria-selected="false">All</button>
+                <button role="tab" aria-selected="false">Music</button>
+                <button role="tab" aria-selected="false">Playlists</button>
+                <button role="tab" aria-selected="false">Mixes</button>
+                <button role="tab" aria-selected="false">Live</button>
+                <button role="tab" aria-selected="false">Podcasts</button>
+                <button role="tab" aria-selected="false">Albums</button>
+                <button role="tab" aria-selected="false">Universities</button>
+                <button role="tab" aria-selected="false">Gospel</button>
+                <button role="tab" aria-selected="false">Watched</button>
+                <button role="tab" aria-selected="false">New to you</button>
+                <button class="next" role="tab" aria-selected="false"><img src="assets/next.svg" alt=""></button>
             </div>
-
-            <div class="button">
-                <span>
-                    <i class="material-icons">feedback</i>
-                    Send feedback
-                </span>
-            </div>
-
-        </section>
-
-        <section>
-            <a href="#">About</a><a href="#">Press</a><a href="#">Copyright</a></br>
-            <a href="#">Contact us</a><a href="#">Creactors</a><a href="#">Advertise</a></br>
-            <a href="#">Developers</a></br>
-            </br>
-            <a href="#">Terms</a><a href="#">Privacy</a><a href="#">Policy & Safety</a></br>
-            <a href="#">How YouTube works</a></br>
-            <a href="#">Test new features</a>
-            </br></br>
-            <span>© 2026 Google LLC</span>
-        </section>
-    </aside> 
-
-    <main>
-        <section>
-            <div class="categories">
-                <button class="active">All</button>
-                <button>Music</button>
-                <button>Gaming</button>
-                <button>News</button>
-                <button>Live</button>
-                <button>Sports</button>
-                <button>Learning</button>
-                <button>Fashion & Beauty</button>
-                <button>Comedy</button>
-            </div>
-
-        </section>
-
-        <section>
+        
             <div class="videos">
-                <div class="video">
-                    <img src="assets/video1.jpg" alt="Video thumbnail">
-                    <div class="video-info">
-                        <h3>Video Title 1</h3>
-                        <p>Channel Name</p>
-                        <p>1M views • 1 day ago</p>
-        </section>                
-     </main>
+                <div class="video-grid">
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/5g9Vl7ZuUSQ/maxresdefault.jpg" alt="Video 1 thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/mpoomyL.jpg" alt="Channel_Icon">
+                            </div>
+                            <div class="video-details">
+                                <p>Purpose Doesn't Follow Your Timeline</p>
+                                <div class="posted-by">
+                                    <span>Mpoomy Ledwaba</span>
+                                    <div class="views-date">
+                                        <span>67k Views</span>
+                                        <span>•</span>
+                                        <span>3 weeks ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/dyBVssDlvFY/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/Ladies1.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>Ep. 38: Self-Care as Self-Love.| #BecauseWeSaidSoPod</p>
+                                <div class="posted-by">
+                                    <span>Because We Said So</span>
+                                    <div class="views-date">
+                                        <span>35K views</span>
+                                        <span>•</span>
+                                        <span>4 days ago</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/W6NZfCO5SIk/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/Mosh.jpg" alt="">
+                            </div>
+                            <div class="video-details">
+                                <p>JavaScript Course for Beginners - Your First Step to Web Development</p>
+                                <div class="posted-by">
+                                    <span>Programming with Mosh</span>
+                                    <div class="views-date">
+                                        <span>1.4M views</span>
+                                        <span>•</span>
+                                        <span>7 years ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/P0jk1o0Y2pc/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/growing.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>Honest Girl Chat|Lust Struggles, Stubborn Crushes, Waiting Seasons, Sharing Jesus with Family ect*</p>
+                                <div class="posted-by">
+                                    <span>Growing Through It</span>
+                                    <div class="views-date">
+                                        <span>9.5K views</span>
+                                        <span>•</span>
+                                        <span>4 months ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/Gg7fRMQ1E0s/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/growing.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>You're Not Behind|How to Trust God When Struggling With Comparison</p>
+                                <div class="posted-by">
+                                    <span>Growing Through It</span>
+                                    <div class="views-date">
+                                        <span>46K views</span>
+                                        <span>•</span>
+                                        <span>1 year ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/Q7D9XMXENRA/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/Zaio.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>Youth Day Edition: Build Your First Website Without Code.</p>
+                                <div class="posted-by">
+                                    <span>Zaio</span>
+                                    <div class="views-date">
+                                        <span>211K views</span>
+                                        <span>•</span>
+                                        <span>8 months ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/SOJpE1KMUbo/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/Dave.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>Raindance (ft. Tems)</p>
+                                <div class="posted-by">
+                                    <span>Santan Dave</span>
+                                    <div class="views-date">
+                                        <span>27,859,054 views</span>
+                                        <span>•</span>
+                                        <span>4 months ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/QxEMYd53W2g/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/Jessica.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>How to Make Money With Only HTML & CSS 2025</p>
+                                <div class="posted-by">
+                                    <span>Jessica</span>
+                                    <div class="views-date">
+                                        <span>112K views</span>
+                                        <span>•</span>
+                                        <span>11 months ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+
+                    <div class="video">
+                        <div class="thumbnail">
+                            <img src="https://img.youtube.com/vi/xcpneUa4_ig/maxresdefault.jpg" alt="Video Thumbnail">
+                        </div>
+                        <div class="details">
+                            <div class="profile">
+                                <img src="assets/Jessica.jpg" alt="Channel-icon">
+                            </div>
+                            <div class="video-details">
+                                <p>Creating My Calm Productivity Space with Branch Duo Standing Desk</p>
+                                <div class="posted-by">
+                                    <span>Jessica</span>
+                                    <div class="views-date">
+                                        <span>285K views</span>
+                                        <span>•</span>
+                                        <span>3 months ago</span>
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>       
 
 </body>
 </html>
