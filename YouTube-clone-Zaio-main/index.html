@@ -4,18 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script>
-        (function () {
-            try {
-                const saved = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const theme = saved || (prefersDark ? 'dark' : 'light');
-                document.documentElement.dataset.theme = theme;
-            } catch {
-                // If storage is blocked, just use default CSS theme.
-            }
-        })();
-    </script>
    
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -26,9 +14,8 @@
 <body>
     <div class="navbar">
         <div class="logo">
-            <i class="material-icons" id="menu">menu</i>
-            <img class="logo-dark" src="assets/logo.svg" alt="YouTube logo">
-            <img class="logo-light" src="assets/logo-light.svg" alt="YouTube logo">
+            <i class="material-icons">menu</i>
+            <img src="assets/logo.svg" alt="YouTube logo">
         </div>
 
         <div class="searchbar">
@@ -44,13 +31,7 @@
             <button class="add"><img src="assets/add.svg" alt="">Create
             </button>
             
-            <i id="notifications" class="material-icons">notifications</i>
-
-            <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-                <i id="theme-toggle-icon" class="material-icons" aria-hidden="true">dark_mode</i>
-            </button>
-
-            <button id="auth-button" class="auth-button" type="button">Login</button>
+            <i class="material-icons">notifications</i>
             
             <button class="profile"><img src="assets/profileimg.jpg" alt="Profile"></button>
         </div>
@@ -236,7 +217,7 @@
                     </span>
                 </div>
             
-                <div class="cagories-footer">
+                <div class="categories-footer">
                     <div class="footer-section">
                         <span>About</span>
                         <span>Press</span>
@@ -268,7 +249,7 @@
                 <button role="tab" aria-selected="false">Live</button>
                 <button role="tab" aria-selected="false">Podcasts</button>
                 <button role="tab" aria-selected="false">Albums</button>
-                <button role="tab" aria-selected="false">Deep House</button>
+                <button role="tab" aria-selected="false">Universities</button>
                 <button role="tab" aria-selected="false">Gospel</button>
                 <button role="tab" aria-selected="false">Watched</button>
                 <button role="tab" aria-selected="false">New to you</button>
@@ -412,18 +393,18 @@
 
                     <div class="video">
                         <div class="thumbnail">
-                            <img src="https://img.youtube.com/vi/yPqc3jCIcSQ/maxresdefault.jpg" alt="Video Thumbnail">
+                            <img src="https://img.youtube.com/vi/SOJpE1KMUbo/maxresdefault.jpg" alt="Video Thumbnail">
                         </div>
                         <div class="details">
                             <div class="profile">
-                                <img src="assets/Orenze.jpg" alt="Channel-icon">
+                                <img src="assets/Dave.jpg" alt="Channel-icon">
                             </div>
                             <div class="video-details">
-                                <p>Wind of the Lord</p>
+                                <p>Raindance (ft. Tems)</p>
                                 <div class="posted-by">
-                                    <span>Victoria Orenze</span>
+                                    <span>Santan Dave</span>
                                     <div class="views-date">
-                                        <span>639K views</span>
+                                        <span>27,859,054 views</span>
                                         <span>•</span>
                                         <span>4 months ago</span>
                                     </div>
@@ -480,132 +461,5 @@
         </main>
     </div>       
 
-    <script>
-        (function () {
-            const btn = document.getElementById('theme-toggle');
-            const icon = document.getElementById('theme-toggle-icon');
-            if (!btn || !icon) return;
-
-            function applyTheme(theme) {
-                document.documentElement.dataset.theme = theme;
-                const isDark = theme === 'dark';
-                btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-                icon.textContent = isDark ? 'light_mode' : 'dark_mode';
-                try {
-                    localStorage.setItem('theme', theme);
-                } catch {
-                    // ignore
-                }
-            }
-
-            function getCurrentTheme() {
-                const t = document.documentElement.dataset.theme;
-                return t === 'dark' || t === 'light' ? t : 'dark';
-            }
-
-            // Ensure button state matches current theme (set in head).
-            applyTheme(getCurrentTheme());
-
-            btn.addEventListener('click', function () {
-                const next = getCurrentTheme() === 'dark' ? 'light' : 'dark';
-                applyTheme(next);
-            });
-        })();
-    </script>
-
-    <script>
-        (function () {
-            const authBtn = document.getElementById('auth-button');
-            if (!authBtn) return;
-
-            function isLoggedIn() {
-                return localStorage.getItem('auth_logged_in') === 'true';
-            }
-
-            function syncAuthButton() {
-                authBtn.textContent = isLoggedIn() ? 'Logout' : 'Login';
-            }
-
-            syncAuthButton();
-
-            authBtn.addEventListener('click', function () {
-                if (isLoggedIn()) {
-                    localStorage.removeItem('auth_logged_in');
-                    localStorage.removeItem('auth_user');
-                    syncAuthButton();
-                    return;
-                }
-                window.location.href = 'login.html';
-            });
-        })();
-    </script>
-
-    <script>
-        (function () {
-            const HOVER_DELAY_MS = 200;
-            let activeThumb = null;
-            let hoverTimer = null;
-
-            function getVideoIdFromThumbnail(thumb) {
-                const img = thumb.querySelector('img');
-                if (!img) return null;
-
-                const src = img.getAttribute('src') || '';
-                const match = src.match(/img\.youtube\.com\/vi\/([^/]+)\//i);
-                return match ? match[1] : null;
-            }
-
-            function stopPreview() {
-                if (!activeThumb) return;
-                const preview = activeThumb.querySelector('.hover-preview');
-                if (preview) preview.remove();
-                activeThumb.classList.remove('is-previewing');
-                activeThumb = null;
-            }
-
-            function startPreview(thumb) {
-                const videoId = getVideoIdFromThumbnail(thumb);
-                if (!videoId) return;
-
-                if (activeThumb && activeThumb !== thumb) stopPreview();
-                activeThumb = thumb;
-
-                if (thumb.querySelector('.hover-preview')) return;
-
-                const wrapper = document.createElement('div');
-                wrapper.className = 'hover-preview';
-
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videoId)}?autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&playsinline=1`;
-                iframe.setAttribute('title', 'Video preview');
-                iframe.setAttribute('loading', 'lazy');
-                iframe.setAttribute('allow', 'autoplay; encrypted-media; picture-in-picture');
-                iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-
-                wrapper.appendChild(iframe);
-                thumb.appendChild(wrapper);
-                thumb.classList.add('is-previewing');
-            }
-
-            document.querySelectorAll('.video .thumbnail').forEach(function (thumb) {
-                thumb.addEventListener('mouseenter', function () {
-                    clearTimeout(hoverTimer);
-                    hoverTimer = window.setTimeout(function () {
-                        startPreview(thumb);
-                    }, HOVER_DELAY_MS);
-                });
-
-                thumb.addEventListener('mouseleave', function () {
-                    clearTimeout(hoverTimer);
-                    if (activeThumb === thumb) stopPreview();
-                });
-            });
-
-            window.addEventListener('blur', function () {
-                clearTimeout(hoverTimer);
-                stopPreview();
-            });
-        })();
-    </script>
 </body>
 </html>
