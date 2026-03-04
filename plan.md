@@ -1,232 +1,243 @@
-🎬 YouTube Homepage Clone
+# Project plan
+
+## 1. Project overview
+
+This is a small YouTube‑style UI built with plain HTML, CSS and a little
+vanilla JavaScript.  
+Three pages/files are currently in the workspace:
+
+* `index.html` – home page with navbar, sidebar (`.categories`), filter
+  bar, video grid, theme toggle and lightweight “login/logout” state.
+* `login.html` – standalone authentication page with a basic “demo
+  login” form.
+* `style.css` – theming, layout and component styles for both pages.
+
+The layout uses a flex column on `body` and a horizontal flex container
+(`.mainbody`) for the sidebar+content.  Colours are controlled via CSS
+variables and a small script sets `data-theme` for light/dark modes.
+
+## 2. Current status
 
-A fully responsive YouTube homepage clone built using HTML, CSS, and JavaScript.
+### Layout
+
+* `body` is `display:flex; flex-direction:column; min-height:100vh`.
+* Navbar is `position:sticky` and 56 px tall.
+* `.mainbody` fills the remaining space with `height:calc(100vh - 56px)`.
+* `.categories` (the `<aside>`‑equivalent) has `overflow-y:scroll`,
+  `width:240px`, and custom scrollbar rules that hide the track until the
+  user hovers.
+* Footer links are inside `.categories-footer`; the sidebar now extends
+  to the bottom of the viewport.
 
-This project focuses on layout engineering, responsive design, UI polish, and structured front-end development.
-_________________________________________________________________________________________________________________________________
+### Overflow/scrolling
 
-📌 Project Objective
+* Sidebar scrolls independently of the video list.
+* Scrollbars are hidden by default (`::-webkit-scrollbar {width:0}`)
+  and shown on hover.
+* Video column (`.videos`) has its own `overflow-y:scroll`.
+
+### Authentication
 
-The goal of this project is to:
+* The login page replicates Google/YouTube styling using the same
+  `navbar` component and theme script.
+* Form submission simply writes to `localStorage`; the “login” button on
+  `index.html` toggles between Login/Logout and redirects appropriately.
+* There is no back‑end authentication – it’s purely for demo purposes.
 
-Recreate the YouTube homepage layout
+### Responsiveness
 
-Apply proper layout systems (Flexbox & Grid)
+* Breakpoints at 1024 px and 768 px collapse the sidebar, adjust video
+  card widths, hide filters and shrink icons.
+* `.mainbody` becomes a column on mobile.
+
+## 3. Issues to address
+
+1. **Ensure the sidebar always reaches the footer**  
+   (already handled by the `.mainbody` height rule and flex behaviour,
+   but keep `min-height:0` on flex children if you add nested flexboxes).
+
+2. **Scrollbar appearance**  
+   The current CSS hides the scrollbar in WebKit browsers; Firefox is
+   controlled with `scrollbar-width:none`.  You may want to test
+   on different platforms.
 
-Implement responsive design principles
+3. **`aside` tag vs `.categories` wrapper**  
+   Your HTML now puts the sidebar content in a `.categories` div inside
+   `.mainbody`.  Semantically you could use `<aside>` and adjust the CSS
+   selectors accordingly.
 
-Add interactive UI enhancements
+4. **Navbar/menu toggle behaviour**  
+   Mobile menu and search button require JS for toggling – not yet
+   implemented.
 
-Follow a structured development workflow
+5. **Accessibility**  
+   * `role="tablist"`/`role="tab"` are present on filter buttons but no
+     keyboard interaction is implemented.
+   * `aria-live` on login errors works, but focus management could be
+     improved.
 
-Deploy a production-ready static site.
-____________________________________________________________________________________________________________________________________
+## 4. Next steps
 
-🏗 Project Structure
-📁 Folder Organization
-/project
-│
-├── index.html
-├── style.css
-├── script.js
-└── /assets
-    ├── thumbnails
-    ├── icons
-    └── profile-images
-🧱 Implementation Breakdown
-1️⃣ HTML Architecture
+* **Styling tweaks**
+  * Add `min-height:0` to `.categories` if you nest flex items inside.
+  * Consider moving the footer markup outside of the scrollable area if
+    you ever want it fixed.
 
-The layout follows semantic structure for clarity and scalability:
+* **JavaScript features**
+  * Make filter buttons change the active tab and maybe filter the video
+    array.
+  * Implement search form behaviour (currently just a dummy).
+  * Enhance login logic (validate email format, show real errors,
+    maybe integrate with a backend or Firebase).
 
-<header> → Top navigation bar
+* **Performance**
+  * Lazy‑load video thumbnails/iframes (you already use `loading="lazy"`
+    on the preview iframe).
+  * Debounce hover preview requests.
 
-<aside> → Sidebar navigation
+* **Responsive/improvements**
+  * Add hamburger menu functionality.
+  * Add a toggle that collapses the sidebar on desktop.
+  * Convert color variables into a Sass/SCSS partial if the project
+    grows.
 
-<main> → Video content grid
+* **Documentation**
+  * Add comments in CSS explaining the scrollbar hiding rules.
+  * Document the theme‑toggle script.
 
-This structure improves readability, maintainability, and accessibility.
-____________________________________________________________________________________________________________________________________
+* **General housekeeping**
+  * Rename `.cagories-footer` → `.categories-footer` (typo).
+  * Remove unused selectors/JavaScript once features are complete.
 
-2️⃣ Layout System (CSS)
-Flexbox Used For:
+## 5. File creation
 
-Header alignment
+Create `plan.md` with the text above; it can live next to your HTML files
+and act as a check‑list as you continue working on the clone.
 
-Sidebar vertical structure
+---
+
+With this plan in place you’ve got a clear sense of what’s implemented
+and what remains to be done.  Tackle the layout/overflow items first if
+you’re still having trouble with the sidebar height, then move on to
+interactivity and polish.# Project plan
+
+## 1. Project overview
 
-Search bar positioning
+This is a small YouTube‑style UI built with plain HTML, CSS and a little
+vanilla JavaScript.  
+Three pages/files are currently in the workspace:
 
-CSS Grid Used For:
+* `index.html` – home page with navbar, sidebar (`.categories`), filter
+  bar, video grid, theme toggle and lightweight “login/logout” state.
+* `login.html` – standalone authentication page with a basic “demo
+  login” form.
+* `style.css` – theming, layout and component styles for both pages.
 
-Video card layout
+The layout uses a flex column on `body` and a horizontal flex container
+(`.mainbody`) for the sidebar+content.  Colours are controlled via CSS
+variables and a small script sets `data-theme` for light/dark modes.
 
-Responsive column control
+## 2. Current status
 
-Design System Principles:
+### Layout
 
-Consistent spacing (8px rhythm system)
+* `body` is `display:flex; flex-direction:column; min-height:100vh`.
+* Navbar is `position:sticky` and 56 px tall.
+* `.mainbody` fills the remaining space with `height:calc(100vh - 56px)`.
+* `.categories` (the `<aside>`‑equivalent) has `overflow-y:scroll`,
+  `width:240px`, and custom scrollbar rules that hide the track until the
+  user hovers.
+* Footer links are inside `.categories-footer`; the sidebar now extends
+  to the bottom of the viewport.
 
-Reusable component styling
+### Overflow/scrolling
 
-Clean alignment
+* Sidebar scrolls independently of the video list.
+* Scrollbars are hidden by default (`::-webkit-scrollbar {width:0}`)
+  and shown on hover.
+* Video column (`.videos`) has its own `overflow-y:scroll`.
 
-Predictable layout scaling
-______________________________________________________________________________________________________________________________________
+### Authentication
 
-📱 Responsive Strategy
+* The login page replicates Google/YouTube styling using the same
+  `navbar` component and theme script.
+* Form submission simply writes to `localStorage`; the “login” button on
+  `index.html` toggles between Login/Logout and redirects appropriately.
+* There is no back‑end authentication – it’s purely for demo purposes.
 
-The project uses media queries to ensure responsiveness across devices.
+### Responsiveness
 
-Breakpoints
+* Breakpoints at 1024 px and 768 px collapse the sidebar, adjust video
+  card widths, hide filters and shrink icons.
+* `.mainbody` becomes a column on mobile.
 
-Desktop: 1200px and above
+## 3. Issues to address
 
-Large Tablet: 900px
+1. **Ensure the sidebar always reaches the footer**  
+   (already handled by the `.mainbody` height rule and flex behaviour,
+   but keep `min-height:0` on flex children if you add nested flexboxes).
 
-Small Tablet: 600px
+2. **Scrollbar appearance**  
+   The current CSS hides the scrollbar in WebKit browsers; Firefox is
+   controlled with `scrollbar-width:none`.  You may want to test
+   on different platforms.
 
-Mobile: Below 600px
+3. **`aside` tag vs `.categories` wrapper**  
+   Your HTML now puts the sidebar content in a `.categories` div inside
+   `.mainbody`.  Semantically you could use `<aside>` and adjust the CSS
+   selectors accordingly.
 
-Layout Adjustments
+4. **Navbar/menu toggle behaviour**  
+   Mobile menu and search button require JS for toggling – not yet
+   implemented.
 
-4 video columns on desktop
+5. **Accessibility**  
+   * `role="tablist"`/`role="tab"` are present on filter buttons but no
+     keyboard interaction is implemented.
+   * `aria-live` on login errors works, but focus management could be
+     improved.
 
-3 columns on large tablets
+## 4. Next steps
 
-2 columns on small tablets
+* **Styling tweaks**
+  * Add `min-height:0` to `.categories` if you nest flex items inside.
+  * Consider moving the footer markup outside of the scrollable area if
+    you ever want it fixed.
 
-1 column on mobile
+* **JavaScript features**
+  * Make filter buttons change the active tab and maybe filter the video
+    array.
+  * Implement search form behaviour (currently just a dummy).
+  * Enhance login logic (validate email format, show real errors,
+    maybe integrate with a backend or Firebase).
 
-Sidebar adapts or collapses on smaller screens
+* **Performance**
+  * Lazy‑load video thumbnails/iframes (you already use `loading="lazy"`
+    on the preview iframe).
+  * Debounce hover preview requests.
 
-No horizontal scrolling
+* **Responsive/improvements**
+  * Add hamburger menu functionality.
+  * Add a toggle that collapses the sidebar on desktop.
+  * Convert color variables into a Sass/SCSS partial if the project
+    grows.
 
-The goal is to maintain usability and layout integrity at every screen size.
-___________________________________________________________________________________________________________________________________________
+* **Documentation**
+  * Add comments in CSS explaining the scrollbar hiding rules.
+  * Document the theme‑toggle script.
 
-⚙️ JavaScript Features
+* **General housekeeping**
+  * Rename `.cagories-footer` → `.categories-footer` (typo).
+  * Remove unused selectors/JavaScript once features are complete.
 
-A dedicated script.js file handles interactivity.
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+## 5. File creation
 
-🌙 Dark Mode Toggle
+Create `plan.md` with the text above; it can live next to your HTML files
+and act as a check‑list as you continue working on the clone.
 
-Toggles theme using a class on <body>
+---
 
-Uses CSS variables for color control
-
-Saves user preference in localStorage
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-📂 Collapsible Sidebar
-
-Sidebar can expand or collapse
-
-Layout adjusts dynamically
-___________________________________________________________________________________________________________
-
-🎥 Hover Enhancements
-
-Thumbnail scale animation
-
-Smooth transitions
-
-Subtle shadow elevation on hover
-________________________________________________________________________________________________________________
-
-🎨 UI & UX Enhancements
-
-To improve realism and polish:
-
-Smooth CSS transitions
-
-Consistent shadows
-
-Unified border-radius usage
-
-Proper font hierarchy
-
-Clean hover states
-
-Structured spacing system
-
-The aim is to make the interface feel close to a real production product.
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-🛠 Technologies Used
-
-HTML5
-
-CSS3 (Flexbox, Grid, Media Queries)
-
-JavaScript (DOM Manipulation)
-
-Git & GitHub
-
-Netlify (Deployment)
-
-🚀 Deployment
-
-The project is deployed using Netlify.
-
-Deployment Process
-
-Push repository to GitHub
-
-Connect repository to Netlify
-
-Deploy as a static site
-
-Test live responsiveness and functionality
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-🔄 Development Workflow
-
-The project followed a structured approach:
-
-Build semantic HTML foundation
-
-Implement layout system
-
-Add responsive behavior
-
-Introduce JavaScript interactivity
-
-Polish UI and animations
-
-Optimize and deploy
-
-________________________________________________+++++++++++++__________________________________________________________________
-
-📌 Future Improvements
-
-Potential enhancements include:
-
-Real search functionality
-
-Dynamic video rendering from JSON
-
-Improved mobile sidebar animation
-
-Accessibility improvements (ARIA, keyboard navigation)
-
-Performance optimization
-
-__________________________________________________________________________________________________________________________________
-
-🎯 Learning Outcomes
-
-Through this project, the following skills were strengthened:
-
-Layout architecture
-
-Responsive design engineering
-
-Component structuring
-
-DOM manipulation
-
-UI polish and refinement
-
-Real-world deployment workflow
+With this plan in place you’ve got a clear sense of what’s implemented
+and what remains to be done.  Tackle the layout/overflow items first if
+you’re still having trouble with the sidebar height, then move on to
+interactivity and polish.

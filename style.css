@@ -481,11 +481,11 @@ html[data-theme="light"] .filter-bar .next img {
 }
 
 .video:nth-child(3n+2):hover {
-    box-shadow: 0 0 15px #429bf5;
+    box-shadow: 0 0 15px #f47e1793;
 }
 
 .video:nth-child(3n+3):hover {
-    box-shadow: 0 0 15px #ea33eda3;
+    box-shadow: 0 0 15px #fafa64;
 }
 
 .video {
